@@ -16,6 +16,7 @@ URL:            https://projects.kde.org/projects/extragear/base/wacomtablet
 Source0:        %{oname}%{?!git:-%{version}}.tar.xz
 BuildRequires:  kdelibs4-devel
 BuildRequires:  x11-driver-input-wacom-devel >= 0.10.11
+BuildRequires:  libxrandr-devel
 
 %description
 This module implements a GUI for the Wacom Linux Drivers and extends it
