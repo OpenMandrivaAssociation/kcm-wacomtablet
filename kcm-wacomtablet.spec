@@ -1,6 +1,3 @@
-%define git 1
-%define gitdate %(date +%Y%m%d)
-
 %define major 0
 %define libname %mklibname  %{major}
 %define oname wacomtablet
@@ -9,20 +6,22 @@ Name:           kcm-wacomtablet
 Group:          Graphical desktop/KDE
 Summary:        Kontrol module for Wacom Graphictablets
 Version:        1.3.6
-Release:        %mkrel -c git%{gitdate} 1
+Release:        %mkrel 1
 License:        GPL
 URL:            https://projects.kde.org/projects/extragear/base/wacomtablet
 # wget -c http://anongit.kde.org/wacomtablet/wacomtablet-latest.tar.gz
-Source0:        %{oname}-latest.tar.gz
-BuildRequires:  kdelibs4-devel
-BuildRequires:  x11-driver-input-wacom-devel >= 0.10.11
-BuildRequires:  libxrandr-devel
+Source0:	http://www.kde-apps.org/CONTENT/content-files/114856-%{oname}-v%{version}.tar.bz2
+BuildRequires:	kdelibs4-devel
+BuildRequires:	x11-driver-input-wacom-devel >= 0.10.11
+BuildRequires:	pkgconfig(xrandr)
+BuildRequires:	pkgconfig(xi)
+BuildRequires:	x11-proto-devel
 
 %description
 This module implements a GUI for the Wacom Linux Drivers and extends it
 with profile support to handle different button/pen layouts per profile.
 
-%files
+%files -f %{name}.lang
 %doc README
 %{_datadir}/dbus-1/interfaces/org.kde.Wacom*.xml
 %{_kde_docdir}/HTML/en/kcontrol/wacomtablet/
@@ -36,12 +35,13 @@ with profile support to handle different button/pen layouts per profile.
 
 #--------------------------------------------------------------------
 %prep
-%setup -q%{?git:n %{oname}}
+%setup -q -n %{oname}-v%{version}
 
 %build
-./initrepo.sh
 %cmake_kde4
 %make
 
+
 %install
 %makeinstall_std -C build
+%find_lang %{name} --all-name
