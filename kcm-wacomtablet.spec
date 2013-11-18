@@ -47,5 +47,5 @@ with profile support to handle different button/pen layouts per profile.
 %install
 %makeinstall_std -C build
 %find_lang %{name} --all-name
-install -p -m755 %{SOURCE6} %{buildroot}%{_docdir}/%{name}
+install -p -m755 %{SOURCE1} %{buildroot}%{_docdir}/%{name}
 
