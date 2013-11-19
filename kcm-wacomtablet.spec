@@ -25,7 +25,6 @@ with profile support to handle different button/pen layouts per profile.
 %files -f %{name}.lang
 %doc README
 %{_datadir}/dbus-1/interfaces/org.kde.Wacom*.xml
-%{_docdir}/%{name}/README.urpmi
 %{_kde_docdir}/HTML/en/kcontrol/wacomtablet/
 %{_kde_libdir}/kde4/kcm_wacomtablet.so
 %{_kde_libdir}/kde4/kded_wacomtablet.so
@@ -46,6 +45,7 @@ with profile support to handle different button/pen layouts per profile.
 
 %install
 %makeinstall_std -C build
+mkdir -p %{buildroot}%{_docdir}/%{name}
+install -p -m644 %{SOURCE1} %{buildroot}%{_docdir}/%{name}
 %find_lang %{name} --all-name
-install -p -m755 %{SOURCE1} %{buildroot}%{_docdir}/%{name}
 
