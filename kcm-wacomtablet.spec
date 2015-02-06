@@ -6,7 +6,7 @@ Name:           kcm-wacomtablet
 Group:          Graphical desktop/KDE
 Summary:        Kontrol module for Wacom Graphictablets
 Version:        1.3.6
-Release:        2
+Release:        3
 License:        GPL
 URL:            https://projects.kde.org/projects/extragear/base/wacomtablet
 # wget -c http://anongit.kde.org/wacomtablet/wacomtablet-latest.tar.gz
