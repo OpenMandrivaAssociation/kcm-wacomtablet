@@ -12,6 +12,7 @@ URL:            https://projects.kde.org/projects/extragear/base/wacomtablet
 # wget -c http://anongit.kde.org/wacomtablet/wacomtablet-latest.tar.gz
 Source0:	http://www.kde-apps.org/CONTENT/content-files/114856-%{oname}-v%{version}.tar.bz2
 Source1:	README.urpmi
+BuildRequires:	make
 BuildRequires:	kdelibs4-devel
 BuildRequires:	x11-driver-input-wacom-devel >= 0.10.11
 BuildRequires:	pkgconfig(xrandr)
